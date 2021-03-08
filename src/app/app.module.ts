@@ -9,6 +9,7 @@ import { ProductComponent } from './product-list/product/product.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component';
 import { from } from 'rxjs';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { from } from 'rxjs';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
