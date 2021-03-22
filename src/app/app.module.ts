@@ -10,6 +10,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component';
 import { from } from 'rxjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductListComponent,
     ProductComponent,
     ShoppingCartComponent,
-    CartItemComponent
+    CartItemComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,

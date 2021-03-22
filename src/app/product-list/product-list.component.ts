@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../models/product';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,12 +10,20 @@ import { Product } from '../models/product';
 })
 export class ProductListComponent implements OnInit {
 
-  @Input()
   products: Product[] = [];
+  searchQuery: string = "";
 
-  constructor() { }
+  
 
-  ngOnInit(): void {
+  constructor(private productService: ProductService) { }
+
+  async ngOnInit() {
+    this.products = await this.productService.loadProducts();
   }
 
+  async search() {
+    this.products = await this.productService.filterProducts(this.searchQuery);
+  }
+
+  
 }

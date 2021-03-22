@@ -1,23 +1,26 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
-      <form [formGroup]="productForm">
-        <label for="id">Id</label>
-        <input type="text" class="form-control" id="id" formControlName="id">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" formControlName="title">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" formControlName="description">
-        <label for="price">Price</label>
-        <input type="number" class="form-control" id="price" formControlName="price">
-        <label for="imgUrl">Image Url</label>
-        <input type="text" class="form-control" id="imgUrl" formControlName="imgUrl">
-        <label for="brand">Brand</label>
-        <input type="text" class="form-control" id="brand" formControlName="brand">
-        <button class="btn btn-primary" (click)="addProduct()">Add product</button>
-      </form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Webshop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/">Terméklista</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/product-form">Új termék</a>
+          </li>
+        </ul>
     </div>
-  </div>
+</nav>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
+
+<!--
+
 
   <div class="row mt-2">
     <div class="col-md-7">
@@ -39,3 +42,4 @@
     </div>
   </div>
 </div>
+-->

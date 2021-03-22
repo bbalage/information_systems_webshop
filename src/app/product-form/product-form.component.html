@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <form [formGroup]="productForm">
+          <label for="id">Id</label>
+          <input type="text" class="form-control" id="id" formControlName="id">
+          <div class="text-danger" *ngIf="id!.invalid && (id!.dirty || id!.touched)">
+              <small *ngIf="id!.errors!.required">Id must not be empty</small>
+              <small *ngIf="id!.errors!.pattern">Pattern invalid</small>
+          </div>
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" formControlName="title">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" id="description" formControlName="description">
+          <label for="price">Price</label>
+          <input type="number" class="form-control" id="price" formControlName="price">
+          <div class="text-danger" *ngIf="price!.invalid && (price!.dirty || price!.touched)">
+            <small *ngIf="price!.errors!.min">Price must be greater than 0.</small>
+          </div>
+          <label for="imgUrl">Image Url</label>
+          <input type="text" class="form-control" id="imgUrl" formControlName="imgUrl">
+          <div class="text-danger" *ngIf="imgUrl!.invalid && (imgUrl!.dirty || imgUrl!.touched)">
+            <small *ngIf="imgUrl!.errors!.pattern">Price must be greater than 0.</small>
+          </div>
+          <label for="brand">Brand</label>
+          <input type="text" class="form-control" id="brand" formControlName="brand">
+          <button class="btn btn-primary" (click)="addProduct()" [disabled]="productForm.invalid">Add product</button>
+        </form>
+      </div>
+    </div>
+</div>
