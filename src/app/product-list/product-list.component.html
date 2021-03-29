@@ -8,11 +8,8 @@
   </div>
   
   <div class="row">
-    <div class="col-md-8">
-      <h5>Products</h5>
-      <div *ngFor="let product of products">
-        <app-product [product]="product"></app-product>
-      </div>
+    <div class="col-md-8 mt-2" *ngFor="let product of products">
+      <app-product [product]="product"></app-product>
     </div>
     <div class="col-md-4">
       <h5>Shopping Cart</h5>

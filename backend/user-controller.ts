@@ -44,4 +44,46 @@ export class UserController {
         
         res.status(404).json({ message: 'User not found.'});
     }
+
+    createUser = (req, res) => {
+        const user = req.body;
+
+        if (!user) {
+            res.status(400).json({message: 'No user data defined.'});
+            return;
+        }
+
+        user.id = this.idCounter++;
+
+        this.users.push(user);
+        res.json(user);
+    }
+
+    updateUser = (req, res) => {
+        const user = req.body;
+
+        for (const index in this.users) {
+            if (user.id == this.users[index].id) {
+                this.users.splice(parseInt(index), 1, user);
+                res.json(user);
+                return;
+            }
+        }
+
+        res.status(404).json({ message: 'Cannot find user.'});
+    }
+
+    deleteUser = (req, res) => {
+        const id = req.params.id;
+
+        for (const index in this.users) {
+            if (id == this.users[index].id) {
+                this.users.splice(parseInt(index), 1);
+                res.status(200).json({ message: 'Deleted user.' })
+                return;
+            }
+        }
+
+        res.status(404).json({ message: 'Cannot find user.'});
+    }
 }

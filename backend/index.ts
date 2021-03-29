@@ -1,5 +1,6 @@
 import express from 'express';
 import { getRoutes } from './routes';
+import bodyParser from 'body-parser';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.get('api/greet/:name', (req, res) => {
     });
 });
 
+app.use(bodyParser.json());
 app.use(getRoutes());
 
 app.listen(3000, () => {
