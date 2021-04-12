@@ -8,7 +8,7 @@ const connectionOptions: ConnectionOptions = {
     password: 'n5if3vX?9',
     database: 'inforendszerek',
     synchronize: true,
-    logging: false,
+    logging: true,
     entities: [
        'src/entity/**/*.ts'
     ],

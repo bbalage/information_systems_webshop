@@ -18,24 +18,14 @@ export class ProductService {
   }
 
   async loadProducts() {
-    await this.loadStorageIfEmpty();
-    return this.storage;
+    return this.http.get<Product[]>('api/products').toPromise();
   }
 
   async filterProducts(query: string) {
-    await this.loadStorageIfEmpty();
-    
-    return this.storage.filter((product) => {
-      if (!product.title) {
-        return false;
-      }
-      
-      return product.title.includes(query);
-    });
+    return this.http.get<Product[]>('api/products').toPromise();
   }
 
   async addProduct(product: Product) {
-    await this.loadStorageIfEmpty();
-    this.storage.unshift(product);
+    this.http.post<Product>('api/products', product).toPromise();
   }
 }

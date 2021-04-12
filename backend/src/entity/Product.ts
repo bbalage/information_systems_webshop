@@ -1,40 +1,37 @@
-import { Column, 
-    Entity, PrimaryColumn } from
-    'typeorm';
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @Entity()
-    
-    
-    
-    
-    export class Product {
-    
-    
-    
-    
-    @PrimaryColumn()
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Category } from './Category';
+import { User } from './User';
 
-    id: string;
-    @Column()
+@Entity()
+export class Product {
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column({ nullable: true, type: 'text' })
     title: string;
-    @Column()
+
+    @Column({ nullable: true, type: 'text' })
     description: string;
-  
-    @Column({ type: 'float'
-    })
-  
+
+    @Column({ type: 'float' })
     price: number;
-    @Column()
+
+    @Column({ nullable: true })
     imgUrl: string;
-    @Column()
+
+    @Column({ nullable: true })
     brand: string;
-    
-    }
+
+    @ManyToOne(type => User, {
+        eager: true,
+        cascade: true
+    })
+    uploader: User;
+
+    @ManyToMany(() => Category, category => category.products, {
+        eager: true,
+        cascade: true
+    })
+    @JoinTable()
+    categories: Category[];
+}

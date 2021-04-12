@@ -11,6 +11,7 @@ import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component
 import { from } from 'rxjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductFormComponent } from './product-form/product-form.component';
     ProductComponent,
     ShoppingCartComponent,
     CartItemComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
